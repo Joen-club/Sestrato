@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SFX Bolt Release.mp3-6eb6190d2f15d1b6c553654f33c8f426.mp3str"
+
+[deps]
+
+source_file="res://SFX Bolt Release.mp3"
+dest_files=[ "res://.import/SFX Bolt Release.mp3-6eb6190d2f15d1b6c553654f33c8f426.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

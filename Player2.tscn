@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://PlayerAnims.tres" type="SpriteFrames" id=1]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends KinematicBody2D
+
+export var Gravity = 140.0
+export var Def_velocity = Vector2(0.0, 0.0)
+var JumpForce = -1100
+
+func _physics_process(delta):
+	if Input.is_action_pressed(\"left\"):
+		Def_velocity.x = -200.0
+		$Sprite.play(\"Walk\")
+	elif Input.is_action_pressed(\"right\"):
+		Def_velocity.x = 200.0
+		$Sprite.play(\"Walk\")
+	else:
+		$Sprite.play(\"Idle\")
+		
+	if not is_on_floor():
+		Def_velocity.y += Gravity*delta
+		$Sprite.play(\"Jump\")
+	if Input.is_action_just_pressed(\"jump\") and is_on_floor():
+		Def_velocity.y = -600
+	Def_velocity = move_and_slide(Def_velocity, Vector2.UP)
+	Def_velocity.x = lerp(Def_velocity.x, 0, 0.1)
+"
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25.5, 32 )
+
+[node name="Player" type="Node2D"]
+
+[node name="KinematicBody2D2" type="KinematicBody2D" parent="."]
+script = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="KinematicBody2D2"]
+frames = ExtResource( 1 )
+animation = "Idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D2"]
+position = Vector2( 2.5, 16 )
+shape = SubResource( 1 )

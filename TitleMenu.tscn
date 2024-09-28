@@ -1,0 +1,187 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://HUD/more fonts/KiriFont.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://HUD/UI/grey_button04.png" type="Texture" id=2]
+[ext_resource path="res://TitleMenu.gd" type="Script" id=3]
+[ext_resource path="res://HUD/more fonts/Sniglet-Regular.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 90
+outline_color = Color( 0.196078, 0.109804, 0.109804, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 70
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Appear"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 3.5, 4 ),
+"transitions": PoolRealArray( 10, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.235294, 0.592157, 0.788235, 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 26
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 26
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 36
+font_data = ExtResource( 4 )
+
+[node name="TitleMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.356863, 0.207843, 0.207843, 1 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -267.182
+margin_top = 18.4997
+margin_right = 263.818
+margin_bottom = 108.5
+custom_colors/font_color = Color( 0.235294, 0.788235, 0.360784, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "WELCOME"
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -206.364
+margin_top = 107.635
+margin_right = 199.636
+margin_bottom = 178.635
+custom_colors/font_color = Color( 0.235294, 0.788235, 0.360784, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "TO HELL!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+pause_mode = 2
+anims/Appear = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -369.0
+margin_top = -441.0
+margin_right = 370.0
+margin_bottom = -69.0
+custom_styles/panel = SubResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -136.0
+margin_top = 20.0
+margin_right = 136.0
+margin_bottom = 69.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="PlayGame" type="Button" parent="Panel/TextureRect"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -137.0
+margin_right = 137.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 6 )
+text = "Play"
+
+[node name="About Game" type="Button" parent="Panel"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -136.5
+margin_top = -89.5919
+margin_right = 136.5
+margin_bottom = -39.5921
+custom_fonts/font = SubResource( 7 )
+text = "About GAme"
+
+[node name="Levels" type="Button" parent="Panel"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -136.5
+margin_top = -23.5919
+margin_right = 136.5
+margin_bottom = 26.4079
+custom_fonts/font = SubResource( 7 )
+text = "Levels"
+
+[node name="Quit" type="Button" parent="Panel"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -135.378
+margin_top = 48.2659
+margin_right = 137.622
+margin_bottom = 98.2657
+custom_fonts/font = SubResource( 7 )
+text = "QUIT"
+
+[node name="Label3" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 16.9897
+margin_top = -57.4183
+margin_right = 239.99
+margin_bottom = -11.4183
+custom_fonts/font = SubResource( 8 )
+text = "Version 0.0.0.0.0.2"
+
+[connection signal="pressed" from="Panel/TextureRect/PlayGame" to="Panel/TextureRect/PlayGame" method="_on_PlayGame_pressed"]
+[connection signal="pressed" from="Panel/About Game" to="." method="_on_About_Game_pressed"]
+[connection signal="pressed" from="Panel/About Game" to="." method="_on_Controls_pressed"]
+[connection signal="pressed" from="Panel/Levels" to="." method="_on_Levels_pressed"]
+[connection signal="pressed" from="Panel/Quit" to="." method="_on_Quit_pressed"]

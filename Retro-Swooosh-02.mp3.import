@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Retro-Swooosh-02.mp3-c11dfead404c42cb125dd8a331af1b73.mp3str"
+
+[deps]
+
+source_file="res://Retro-Swooosh-02.mp3"
+dest_files=[ "res://.import/Retro-Swooosh-02.mp3-c11dfead404c42cb125dd8a331af1b73.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

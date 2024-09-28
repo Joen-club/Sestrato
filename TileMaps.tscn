@@ -1,0 +1,196 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://WorldTiles/tileYellow_07.png" type="Texture" id=1]
+[ext_resource path="res://WorldTiles/tileYellow_05.png" type="Texture" id=2]
+[ext_resource path="res://WorldTileSet.tres" type="TileSet" id=3]
+[ext_resource path="res://OneWayTiles.tres" type="TileSet" id=4]
+[ext_resource path="res://WorldTiles/tileYellow_06.png" type="Texture" id=5]
+[ext_resource path="res://WorldTiles/ladder_top.png" type="Texture" id=6]
+[ext_resource path="res://items/Spike.png" type="Texture" id=7]
+[ext_resource path="res://WorldTiles/ladder_mid.png" type="Texture" id=8]
+
+[sub_resource type="ConvexPolygonShape2D" id=16]
+points = PoolVector2Array( 32, 0, 0, 64, 0, 64, 64, 64 )
+
+[sub_resource type="TileSet" id=24]
+0/name = "Spike.png 0"
+0/texture = ExtResource( 7 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 16 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 16 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="ConvexPolygonShape2D" id=21]
+points = PoolVector2Array( 64, 0, 0, 0, 0, 24, 64, 24 )
+
+[sub_resource type="ConvexPolygonShape2D" id=22]
+points = PoolVector2Array( 64, 24, 0, 24, 0, 0, 64, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=23]
+points = PoolVector2Array( 64, 24, 0, 24, 0, 0, 64, 0 )
+
+[sub_resource type="TileSet" id=25]
+0/name = "tileYellow_06.png 0"
+0/texture = ExtResource( 5 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 21 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 21 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "tileYellow_05.png 1"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 64, 64 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 22 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 22 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "tileYellow_07.png 2"
+2/texture = ExtResource( 1 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 64, 64 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 23 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 23 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+
+[sub_resource type="ConvexPolygonShape2D" id=13]
+points = PoolVector2Array( 64, 64, 0, 64, 8, 0, 56, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=11]
+points = PoolVector2Array( 64, 64, 0, 64, 8, 8, 56, 8 )
+
+[sub_resource type="TileSet" id=26]
+0/name = "ladder_mid.png 0"
+0/texture = ExtResource( 8 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 13 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 13 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "ladder_top.png 1"
+1/texture = ExtResource( 6 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 64, 64 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 11 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 11 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+
+[node name="TileMaps" type="Node2D"]
+
+[node name="Spikes" type="TileMap" parent="." groups=["Spikes"]]
+tile_set = SubResource( 24 )
+cell_size = Vector2( 16, 16 )
+centered_textures = true
+collision_layer = 16
+collision_mask = 0
+format = 1
+
+[node name="TileMap" type="TileMap" parent="." groups=["Plats"]]
+tile_set = ExtResource( 3 )
+show_collision = true
+collision_layer = 2
+collision_mask = 177
+format = 1
+tile_data = PoolIntArray( 917461, 18, 0, 917462, 18, 0, 917463, 18, 0, 917464, 18, 0, 917465, 18, 0, 917466, 18, 0, 917467, 18, 0, 917468, 18, 0, 917479, 18, 0, 917480, 18, 0, 917481, 18, 0, 917482, 18, 0, 917483, 18, 0, 917484, 18, 0, 917485, 18, 0, 917486, 18, 0, 917487, 18, 0, 917488, 18, 0, 917489, 18, 0, 917490, 18, 0, 917491, 18, 0, 917493, 18, 0, 917494, 18, 0, 1376235, 19, 0, 1376236, 19, 0, 1376237, 19, 0, 1376238, 19, 0, 1376239, 19, 0 )
+
+[node name="AttacheablePlats" type="TileMap" parent="." groups=["Plats"]]
+tile_set = SubResource( 25 )
+collision_layer = 258
+format = 1
+tile_data = PoolIntArray( -1179648, -1610612717, 0, -1114112, -1610612717, 0, -1048576, -1610612717, 0, -983040, -1610612717, 0, -851984, 10, 0, -917504, -1610612717, 0, -851968, -1610612717, 0, -786427, -1073741805, 0, -786425, 10, 0, -786424, 11, 0, -720891, -1073741805, 0, -655355, -1073741805, 0, -589819, -1073741805, 0, -524283, -1073741805, 0, -458747, -1073741805, 0, -393211, -1073741805, 0, -327675, -1073741805, 0, -262144, -1610612717, 0, -196608, -1610612717, 0, -131072, -1610612717, 0, 524287, 7, 0, 458752, 16, 0, 589822, 7, 0, 720892, 7, 0, 720893, 16, 0, 786427, 7, 0, 786428, 16, 0, 851962, 7, 0 )
+
+[node name="OneWayTiles" type="TileMap" parent="." groups=["OneWay", "Plats"]]
+tile_set = ExtResource( 4 )
+collision_layer = 2
+collision_mask = 433
+format = 1
+
+[node name="Ladders" type="TileMap" parent="."]
+tile_set = SubResource( 26 )
+collision_layer = 512
+collision_mask = 0
+format = 1
