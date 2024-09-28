@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ClassicOne.mp3-35f4c0388efccac826418b21bf3234de.mp3str"
+
+[deps]
+
+source_file="res://SoundTracks/ClassicOne.mp3"
+dest_files=[ "res://.import/ClassicOne.mp3-35f4c0388efccac826418b21bf3234de.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/RaceMaybe.mp3-d4b69f6393899362e588eb25b9bc2b46.mp3str"
+
+[deps]
+
+source_file="res://SoundTracks/RaceMaybe.mp3"
+dest_files=[ "res://.import/RaceMaybe.mp3-d4b69f6393899362e588eb25b9bc2b46.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
