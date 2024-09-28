@@ -1,0 +1,238 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://fonts/BalsamiqSans-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://HUD/coin_gold.png" type="Texture" id=2]
+[ext_resource path="res://CoinPanel2.gd" type="Script" id=3]
+[ext_resource path="res://DashBar.gd" type="Script" id=4]
+[ext_resource path="res://background/image0s.png" type="Texture" id=5]
+[ext_resource path="res://background/BackDash.png" type="Texture" id=6]
+[ext_resource path="res://HUD/FrostBar.png" type="Texture" id=7]
+[ext_resource path="res://HUD/BulletBar.png" type="Texture" id=8]
+[ext_resource path="res://HUD/ShootIconOver.png" type="Texture" id=9]
+[ext_resource path="res://ShootBar.gd" type="Script" id=10]
+[ext_resource path="res://FrostBar.gd" type="Script" id=11]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.784314, 0.121569, 0.247059, 0.443137 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.784314, 0.121569, 0.247059, 0 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+outline_color = Color( 0.494118, 0.141176, 0.141176, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "DashCount"
+length = 3.0
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.01, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 100.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 100.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 100.0 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "ShootCount"
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.01, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 100.0 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "FrostCount"
+length = 1.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.01, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 100.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[node name="CoinPanel+HP" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 5.0
+margin_top = 10.0
+margin_right = 494.0
+margin_bottom = 98.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel2" type="Panel" parent="."]
+margin_left = 188.0
+margin_top = 9.0
+margin_right = 473.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="TextureProgress" type="TextureProgress" parent="Panel2"]
+margin_left = -10.5892
+margin_top = 24.8865
+margin_right = 148.411
+margin_bottom = 69.8865
+max_value = 600.0
+value = 600.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 14.1422
+margin_top = 24.0416
+margin_right = 75.1422
+margin_bottom = 85.0416
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="X" type="Label" parent="."]
+margin_left = 81.4142
+margin_top = 32.0
+margin_right = 120.414
+margin_bottom = 83.0
+custom_colors/font_color = Color( 0.0666667, 0.137255, 0.92549, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.8, 0.215686, 0.215686, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "X"
+
+[node name="AmountOfCoins" type="Label" parent="."]
+margin_left = 109.48
+margin_top = 27.4558
+margin_right = 180.48
+margin_bottom = 87.4558
+custom_colors/font_color = Color( 1, 0.713726, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "##"
+
+[node name="DashBar" type="TextureProgress" parent="."]
+modulate = Color( 1, 1, 1, 0.486275 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 20.2043
+margin_top = -72.8972
+margin_right = 385.205
+margin_bottom = 65.1028
+rect_scale = Vector2( 0.4, 0.4 )
+value = 100.0
+texture_over = ExtResource( 6 )
+texture_progress = ExtResource( 5 )
+script = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DashBar"]
+anims/DashCount = SubResource( 5 )
+anims/RESET = SubResource( 6 )
+
+[node name="ShootBar" type="TextureProgress" parent="."]
+modulate = Color( 1, 1, 1, 0.52549 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 176.228
+margin_top = -71.4788
+margin_right = 541.228
+margin_bottom = 66.5212
+rect_scale = Vector2( 0.35, 0.38 )
+value = 100.0
+texture_over = ExtResource( 9 )
+texture_progress = ExtResource( 8 )
+script = ExtResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ShootBar"]
+anims/RESET = SubResource( 7 )
+anims/ShootCount = SubResource( 8 )
+
+[node name="FrostBar" type="TextureProgress" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -696.002
+margin_top = -120.33
+margin_right = -252.002
+margin_bottom = 323.67
+rect_scale = Vector2( 0.1, 0.1 )
+texture_progress = ExtResource( 7 )
+script = ExtResource( 11 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FrostBar"]
+anims/FrostCount = SubResource( 9 )
+anims/RESET = SubResource( 10 )

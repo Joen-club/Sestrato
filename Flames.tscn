@@ -1,0 +1,152 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Flames.gd" type="Script" id=1]
+[ext_resource path="res://Rotate.tres" type="Animation" id=2]
+[ext_resource path="res://enemies/BossFight/Dragon/FlameWave2.png" type="Texture" id=3]
+[ext_resource path="res://enemies/BossFight/Dragon/floaty_128.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=3]
+resource_name = "FlameWave"
+length = 2.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.7, 0.2 ), Vector2( 0.3, 2.2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionPolygon2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.7 ), Vector2( 2.2, 0.3 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CollisionPolygon2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 31.0904
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 7
+particles_anim_loop = true
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0, 0.278481, 0.778481 )
+colors = PoolColorArray( 1, 0, 0, 1, 0.862745, 0.411765, 0.0862745, 1, 0.984314, 0.509804, 0.2, 1 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+width = 2055
+
+[sub_resource type="ParticlesMaterial" id=7]
+lifetime_randomness = 0.37
+emission_shape = 2
+emission_box_extents = Vector3( 1, 170, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 98.04
+initial_velocity_random = 0.09
+angular_velocity = 240.01
+angular_velocity_random = 0.61
+orbit_velocity = 0.0
+orbit_velocity_random = 0.12
+linear_accel = 3.92
+tangential_accel = 7.85
+tangential_accel_random = 0.08
+scale = 2.0
+scale_random = 0.59
+color_ramp = SubResource( 6 )
+anim_speed = 2.0
+anim_speed_random = 0.4
+
+[node name="Flames" type="Area2D"]
+collision_layer = 64
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 1.18115, 2.89243 )
+rotation = -1.61792
+polygon = PoolVector2Array( 167.4, -40.9414, 195.941, -24.2925, 191.184, 10.1945, 60.3715, 74.4117, -47.8464, 76.7901, -191.74, -23.1033, -178.659, -83.7528, -39.5219, 6.62689, 85.3448, -5.26517 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FlameWave = SubResource( 3 )
+anims/RESET = SubResource( 1 )
+anims/Rotate = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -2.37842, -2.37842 )
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="Particles2DWave" type="Particles2D" parent="."]
+material = SubResource( 4 )
+position = Vector2( -30.1783, -9.31989 )
+emitting = false
+amount = 30
+speed_scale = 0.5
+explosiveness = 0.36
+randomness = 1.0
+visibility_rect = Rect2( -10, -1000, 100, 2500 )
+process_material = SubResource( 7 )
+texture = ExtResource( 4 )
+
+[connection signal="area_entered" from="." to="." method="_on_Flames_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_Flames_body_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

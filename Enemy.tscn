@@ -1,0 +1,115 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Enemy.gd" type="Script" id=1]
+[ext_resource path="res://enemies/slimeBlue_blue.png" type="Texture" id=2]
+[ext_resource path="res://enemies/slimeBlue.png" type="Texture" id=3]
+[ext_resource path="res://enemies/slimeBlue_squashed.png" type="Texture" id=4]
+[ext_resource path="res://PrepareYourAnus.tres" type="Animation" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Enemy",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Squashed",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 18.125, 2.54825 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 26.0351, 5.875 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 21.875, 1.15404 )
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 20.2933, 13.4705 )
+
+[node name="Enemy" type="KinematicBody2D" groups=["Enemy", "Rejectable"]]
+collision_layer = 16
+collision_mask = 35
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Enemy"
+playing = true
+
+[node name="TopChecker" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopChecker"]
+position = Vector2( -0.375, -13.9211 )
+shape = SubResource( 3 )
+
+[node name="SidesChecker" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SidesChecker"]
+position = Vector2( 0.214892, 1.7958 )
+shape = SubResource( 4 )
+
+[node name="BottomChecker" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomChecker"]
+position = Vector2( 0.625, 16.0168 )
+shape = SubResource( 5 )
+
+[node name="ATTAACK" type="AnimationPlayer" parent="."]
+anims/PrepareYourAnus = ExtResource( 5 )
+anims/RESET = SubResource( 6 )
+
+[node name="Checkers" type="Node2D" parent="."]
+
+[node name="PlayerChecker" type="RayCast2D" parent="Checkers"]
+enabled = true
+cast_to = Vector2( -260, 0 )
+
+[node name="FloorChecker" type="RayCast2D" parent="Checkers"]
+modulate = Color( 0.290196, 0.0392157, 0.0392157, 1 )
+enabled = true
+cast_to = Vector2( 0, 70 )
+collision_mask = 2
+
+[node name="WallChecker" type="RayCast2D" parent="Checkers"]
+enabled = true
+cast_to = Vector2( -35, 0 )
+collision_mask = 2
+
+[node name="BackChecker" type="RayCast2D" parent="Checkers"]
+enabled = true
+cast_to = Vector2( 100, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.113342, 2.39126 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="TopChecker" to="." method="_on_Area2D_body_entered"]
+[connection signal="area_entered" from="SidesChecker" to="." method="_on_SidesChecker_area_entered"]
+[connection signal="body_entered" from="SidesChecker" to="." method="_on_SidesChecker_body_entered"]
+[connection signal="body_entered" from="BottomChecker" to="." method="_on_BottomChecker_body_entered"]
+[connection signal="animation_finished" from="ATTAACK" to="." method="_on_ATTAACK_animation_finished"]

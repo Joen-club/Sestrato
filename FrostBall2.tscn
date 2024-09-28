@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://FrostBall2.gd" type="Script" id=1]
+[ext_resource path="res://enemies/FrostBall.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 15.1233
+
+[sub_resource type="Animation" id=2]
+resource_name = "ForSpeed"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:speed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0.0, 900.0 ]
+}
+
+[node name="FrostBall2" type="Area2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/ForSpeed = SubResource( 2 )

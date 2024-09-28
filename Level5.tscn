@@ -1,0 +1,536 @@
+[gd_scene load_steps=48 format=2]
+
+[ext_resource path="res://background/set2_background.png" type="Texture" id=1]
+[ext_resource path="res://background/set2_tiles.png" type="Texture" id=2]
+[ext_resource path="res://OneWayTiles.tres" type="TileSet" id=3]
+[ext_resource path="res://WorldTileSet.tres" type="TileSet" id=4]
+[ext_resource path="res://HUD.gd" type="Script" id=5]
+[ext_resource path="res://Portal.gd" type="Script" id=6]
+[ext_resource path="res://WorldTiles/tileYellow_05.png" type="Texture" id=7]
+[ext_resource path="res://WorldTiles/tileYellow_06.png" type="Texture" id=8]
+[ext_resource path="res://WorldTiles/ladder_mid.png" type="Texture" id=9]
+[ext_resource path="res://WorldTiles/tileYellow_07.png" type="Texture" id=10]
+[ext_resource path="res://WorldTiles/ladder_top.png" type="Texture" id=11]
+[ext_resource path="res://items/Spike.png" type="Texture" id=12]
+[ext_resource path="res://Doors/Portal.png" type="Texture" id=13]
+[ext_resource path="res://CoinPanel.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Pause.tscn" type="PackedScene" id=16]
+[ext_resource path="res://DJ.tscn" type="PackedScene" id=17]
+[ext_resource path="res://SavePosition.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Upgrade.tscn" type="PackedScene" id=21]
+[ext_resource path="res://BossCamera.gd" type="Script" id=22]
+[ext_resource path="res://HUD/more fonts/Sniglet-Regular.ttf" type="DynamicFontData" id=23]
+[ext_resource path="res://BossDragon.tscn" type="PackedScene" id=24]
+[ext_resource path="res://IWBTB Soundtrack - 10 - Miniboss - Kracko.mp3" type="AudioStream" id=25]
+[ext_resource path="res://MusicFight.gd" type="Script" id=26]
+[ext_resource path="res://BossMagician.tscn" type="PackedScene" id=27]
+[ext_resource path="res://BossBar.gd" type="Script" id=28]
+[ext_resource path="res://Died.tres" type="Animation" id=29]
+[ext_resource path="res://Level5.gd" type="Script" id=30]
+[ext_resource path="res://Applause Crowd Cheering sound effect.mp3" type="AudioStream" id=31]
+
+[sub_resource type="ConvexPolygonShape2D" id=30]
+points = PoolVector2Array( 32, 0, 0, 64, 0, 64, 64, 64 )
+
+[sub_resource type="TileSet" id=36]
+0/name = "Spike.png 0"
+0/texture = ExtResource( 12 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 30 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 30 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="ConvexPolygonShape2D" id=31]
+points = PoolVector2Array( 64, 0, 0, 0, 0, 24, 64, 24 )
+
+[sub_resource type="ConvexPolygonShape2D" id=32]
+points = PoolVector2Array( 64, 24, 0, 24, 0, 0, 64, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=33]
+points = PoolVector2Array( 64, 24, 0, 24, 0, 0, 64, 0 )
+
+[sub_resource type="TileSet" id=37]
+0/name = "tileYellow_06.png 0"
+0/texture = ExtResource( 8 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 31 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 31 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "tileYellow_05.png 1"
+1/texture = ExtResource( 7 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 64, 64 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 32 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 32 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "tileYellow_07.png 2"
+2/texture = ExtResource( 10 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 64, 64 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 33 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 33 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+
+[sub_resource type="ConvexPolygonShape2D" id=34]
+points = PoolVector2Array( 64, 64, 0, 64, 8, 0, 56, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=35]
+points = PoolVector2Array( 64, 64, 0, 64, 8, 8, 56, 8 )
+
+[sub_resource type="TileSet" id=38]
+0/name = "ladder_mid.png 0"
+0/texture = ExtResource( 9 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 34 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 34 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "ladder_top.png 1"
+1/texture = ExtResource( 11 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 64, 64 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 35 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 35 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+
+[sub_resource type="StyleBoxFlat" id=42]
+bg_color = Color( 0.556863, 0.0588235, 0.0588235, 1 )
+
+[sub_resource type="StyleBoxFlat" id=43]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="RectangleShape2D" id=39]
+extents = Vector2( 1e+06, 8 )
+
+[sub_resource type="CapsuleShape2D" id=40]
+radius = 39.8073
+height = 48.6892
+
+[sub_resource type="DynamicFont" id=41]
+size = 36
+font_data = ExtResource( 23 )
+
+[sub_resource type="CircleShape2D" id=44]
+radius = 77.5519
+
+[sub_resource type="Animation" id=45]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../..:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=46]
+resource_name = "Flee"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2944.69, -1546.19 ), Vector2( 3800, -2946.19 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="Animation" id=47]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2944.69, -1546.19 ) ]
+}
+
+[node name="Level5" type="Node2D"]
+script = ExtResource( 30 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 621.614 ]
+}
+
+[node name="MusicFight" type="Node2D" parent="."]
+script = ExtResource( 26 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="MusicFight"]
+
+[node name="PurpleSky" type="ParallaxLayer" parent="MusicFight/ParallaxBackground"]
+motion_mirroring = Vector2( 1280, 960 )
+
+[node name="Sprite" type="Sprite" parent="MusicFight/ParallaxBackground/PurpleSky"]
+position = Vector2( -320, -32 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="BackBlocks" type="ParallaxLayer" parent="MusicFight/ParallaxBackground"]
+modulate = Color( 0.752941, 0.454902, 0.886275, 0.239216 )
+position = Vector2( 0, -800 )
+motion_scale = Vector2( 0.2, 0.2 )
+motion_mirroring = Vector2( 2560, 1920 )
+
+[node name="Sprite" type="Sprite" parent="MusicFight/ParallaxBackground/BackBlocks"]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="MiddleBlocks" type="ParallaxLayer" parent="MusicFight/ParallaxBackground"]
+modulate = Color( 0.898039, 0.858824, 0.945098, 1 )
+position = Vector2( 0, -500 )
+motion_scale = Vector2( 0.4, 0.4 )
+motion_mirroring = Vector2( 1600, 1200 )
+
+[node name="Sprite" type="Sprite" parent="MusicFight/ParallaxBackground/MiddleBlocks"]
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="FrontBlocks" type="ParallaxLayer" parent="MusicFight/ParallaxBackground"]
+motion_scale = Vector2( 0.6, 0.6 )
+motion_mirroring = Vector2( 1120, 840 )
+
+[node name="Sprite" type="Sprite" parent="MusicFight/ParallaxBackground/FrontBlocks"]
+scale = Vector2( 1.75, 1.75 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="SavePoint" parent="MusicFight" instance=ExtResource( 18 )]
+position = Vector2( -243.354, -446.944 )
+scale = Vector2( 2, 1 )
+
+[node name="Upgrade2" parent="MusicFight" groups=["health_upgrade"] instance=ExtResource( 21 )]
+position = Vector2( -716.022, 2251.24 )
+
+[node name="TileMaps" type="Node2D" parent="MusicFight"]
+
+[node name="OneWayTiles" type="TileMap" parent="MusicFight/TileMaps" groups=["OneWay", "Plats"]]
+tile_set = ExtResource( 3 )
+collision_layer = 4096
+collision_mask = 401
+format = 1
+tile_data = PoolIntArray( -2162663, 5, 0, -2162662, 5, 0, -2162661, 5, 0, -2162660, 5, 0, -2162659, 5, 0, -2162658, 5, 0, -2162657, 5, 0, -2162656, 5, 0, -2162655, 5, 0, -2162654, 5, 0, -2162653, 5, 0, -2162652, 5, 0, -2162651, 5, 0, -2162650, 5, 0, -2162649, 5, 0, -2162648, 5, 0, -2162647, 5, 0, -2162646, 5, 0, -2162645, 5, 0, -2162644, 5, 0, -2162643, 5, 0, -2097127, 5, 0, -2097126, 5, 0, -2097125, 5, 0, -2097124, 5, 0, -2097123, 5, 0, -2097122, 5, 0, -2097121, 5, 0, -2097120, 5, 0, -2097119, 5, 0, -2097118, 5, 0, -2097117, 5, 0, -2097116, 5, 0, -2097115, 5, 0, -2097114, 5, 0, -2097113, 5, 0, -2097112, 5, 0, -2097111, 5, 0, -2097110, 5, 0, -2097109, 5, 0, -2097108, 5, 0, -2097107, 5, 0, -2031591, 5, 0, -2031590, 5, 0, -2031589, 5, 0, -2031588, 5, 0, -2031587, 5, 0, -2031586, 5, 0, -2031585, 5, 0, -2031584, 5, 0, -2031583, 5, 0, -2031582, 5, 0, -2031581, 5, 0, -2031580, 5, 0, -2031579, 5, 0, -2031578, 5, 0, -2031577, 5, 0, -2031576, 5, 0, -2031575, 5, 0, -2031574, 5, 0, -2031573, 5, 0, -2031572, 5, 0, -2031571, 5, 0, -1966055, 5, 0, -1966054, 5, 0, -1966053, 5, 0, -1966052, 4, 0, -1966051, 4, 0, -1966050, 5, 0, -1966049, 5, 0, -1966048, 5, 0, -1966047, 5, 0, -1966046, 5, 0, -1966045, 5, 0, -1966044, 5, 0, -1966043, 5, 0, -1966042, 5, 0, -1966041, 4, 0, -1966040, 4, 0, -1966039, 5, 0, -1966038, 5, 0, -1966037, 5, 0, -1966036, 4, 0, -1966035, 4, 0, -1900519, 5, 0, -1900518, 5, 0, -1900517, 5, 0, -1900516, 5, 0, -1900515, 5, 0, -1900514, 5, 0, -1900513, 5, 0, -1900512, 5, 0, -1900511, 5, 0, -1900510, 5, 0, -1900509, 5, 0, -1900508, 5, 0, -1900507, 5, 0, -1900506, 5, 0, -1900505, 5, 0, -1900504, 5, 0, -1900503, 5, 0, -1900502, 5, 0, -1900501, 5, 0, -1900500, 5, 0, -1900499, 5, 0, -1834983, 5, 0, -1834982, 5, 0, -1834981, 5, 0, -1834980, 5, 0, -1834979, 5, 0, -1834978, 5, 0, -1834977, 5, 0, -1834976, 5, 0, -1834975, 5, 0, -1834974, 5, 0, -1834973, 5, 0, -1834972, 5, 0, -1834971, 5, 0, -1834970, 5, 0, -1834969, 5, 0, -1834968, 5, 0, -1834967, 5, 0, -1834966, 5, 0, -1834965, 5, 0, -1834964, 5, 0, -1834963, 5, 0, -1769447, 5, 0, -1769446, 5, 0, -1769445, 5, 0, -1769444, 4, 0, -1769443, 4, 0, -1769442, 4, 0, -1769441, 5, 0, -1769440, 5, 0, -1769439, 5, 0, -1769438, 5, 0, -1769437, 5, 0, -1769436, 5, 0, -1769435, 4, 0, -1769434, 4, 0, -1769433, 4, 0, -1769432, 5, 0, -1769431, 5, 0, -1769430, 5, 0, -1769429, 5, 0, -1703911, 5, 0, -1703910, 5, 0, -1703909, 5, 0, -1703908, 5, 0, -1703907, 5, 0, -1703906, 5, 0, -1703905, 5, 0, -1703904, 5, 0, -1703903, 5, 0, -1703902, 5, 0, -1703901, 5, 0, -1703900, 5, 0, -1703899, 5, 0, -1703898, 5, 0, -1703897, 5, 0, -1703896, 5, 0, -1703895, 5, 0, -1703894, 5, 0, -1703893, 5, 0, -1638375, 5, 0, -1638374, 5, 0, -1638373, 5, 0, -1638372, 5, 0, -1638371, 5, 0, -1638370, 5, 0, -1638369, 5, 0, -1638368, 5, 0, -1638367, 5, 0, -1638366, 5, 0, -1638365, 5, 0, -1638364, 5, 0, -1638363, 5, 0, -1638362, 5, 0, -1638361, 5, 0, -1638360, 5, 0, -1638359, 5, 0, -1638358, 5, 0, -1638357, 5, 0, -1572839, 5, 0, -1572838, 5, 0, -1572837, 5, 0, -1572836, 5, 0, -1572835, 5, 0, -1572834, 5, 0, -1572833, 5, 0, -1572832, 5, 0, -1572831, 5, 0, -1572830, 5, 0, -1572829, 5, 0, -1572828, 5, 0, -1572827, 5, 0, -1572826, 5, 0, -1572825, 5, 0, -1572824, 5, 0, -1572823, 5, 0, -1572822, 5, 0, -1572821, 5, 0 )
+
+[node name="Spikes" type="TileMap" parent="MusicFight/TileMaps" groups=["Spikes"]]
+tile_set = SubResource( 36 )
+cell_size = Vector2( 16, 16 )
+centered_textures = true
+collision_layer = 16
+collision_mask = 0
+format = 1
+
+[node name="AttacheablePlats" type="TileMap" parent="MusicFight/TileMaps" groups=["Plats"]]
+tile_set = SubResource( 37 )
+show_collision = true
+collision_layer = 258
+format = 1
+tile_data = PoolIntArray( -2031570, -1073741824, 0, -1966034, -1073741824, 0, -1900498, -1073741824, 0, -1834984, -1610612736, 0, -1769448, -1610612736, 0, -1769428, -1073741822, 0, -1703912, -1610612736, 0, -1703892, -1073741824, 0, -1638356, -1073741824, 0, -1572820, -1073741823, 0 )
+
+[node name="Ladders" type="TileMap" parent="MusicFight/TileMaps"]
+tile_set = SubResource( 38 )
+collision_layer = 512
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -2162660, 0, 0, -2162649, 0, 0, -2162644, 0, 0 )
+
+[node name="TileMap" type="TileMap" parent="MusicFight/TileMaps" groups=["Plats"]]
+tile_set = ExtResource( 4 )
+show_collision = true
+collision_layer = 2
+collision_mask = 177
+format = 1
+tile_data = PoolIntArray( -2228200, 4, 0, -2228199, 18, 0, -2228198, 18, 0, -2228197, 18, 0, -2228196, 18, 0, -2228195, 18, 0, -2228194, 18, 0, -2228193, 18, 0, -2228192, 18, 0, -2228191, 18, 0, -2228190, 18, 0, -2228189, 18, 0, -2228188, 18, 0, -2228187, 18, 0, -2228186, 18, 0, -2228185, 18, 0, -2228184, 18, 0, -2228183, 18, 0, -2228182, 18, 0, -2228181, 18, 0, -2228180, 18, 0, -2228179, 18, 0, -2228178, 4, 0, -2162664, 4, 0, -2162642, 4, 0, -2097128, 4, 0, -2097106, 4, 0, -2031592, 4, 0, -1966056, 4, 0, -1900520, 4, 0, -1834962, 4, 0, -1769428, -1073741821, 0, -1769427, 4, 0, -1769426, 4, 0, -1638376, 4, 0, -1572840, 4, 0, -1507304, 18, 0, -1507303, 18, 0, -1507302, 18, 0, -1507301, 18, 0, -1507300, 18, 0, -1507299, 18, 0, -1507298, 18, 0, -1507297, 18, 0, -1507296, 18, 0, -1507295, 18, 0, -1507294, 18, 0, -1507293, 18, 0, -1507292, 18, 0, -1507291, 18, 0, -1507290, 18, 0, -1507289, 18, 0, -1507288, 18, 0, -1507287, 18, 0, -1507286, 18, 0, -1507285, 18, 0, -1507284, 18, 0, -1507283, 18, 0, -1507282, 18, 0, -393223, 10, 0, -393222, 18, 0, -393221, 18, 0, -393220, 18, 0, -393219, 18, 0, -393218, 18, 0, -393217, 18, 0, -458752, 18, 0, -458751, 18, 0, -458750, 18, 0, -458749, 18, 0, -458748, 11, 0 )
+
+[node name="Djs" type="Node2D" parent="MusicFight"]
+
+[node name="DJ6" parent="MusicFight/Djs" instance=ExtResource( 17 )]
+position = Vector2( 2184.17, -1768.18 )
+
+[node name="DJ8" parent="MusicFight/Djs" instance=ExtResource( 17 )]
+position = Vector2( 1858.32, -1782.67 )
+
+[node name="DJ9" parent="MusicFight/Djs" instance=ExtResource( 17 )]
+position = Vector2( 2181.79, -2021.13 )
+
+[node name="DJ10" parent="MusicFight/Djs" instance=ExtResource( 17 )]
+position = Vector2( 2531.41, -1793.32 )
+
+[node name="DJ11" parent="MusicFight/Djs" instance=ExtResource( 17 )]
+position = Vector2( 2716.93, -1899.83 )
+
+[node name="HUD" type="CanvasLayer" parent="MusicFight"]
+script = ExtResource( 5 )
+
+[node name="CoinPanel" parent="MusicFight/HUD" instance=ExtResource( 14 )]
+
+[node name="Pause" parent="MusicFight/HUD" instance=ExtResource( 16 )]
+visible = false
+
+[node name="BossBar" type="ProgressBar" parent="MusicFight/HUD"]
+anchor_right = 1.0
+margin_left = 526.0
+margin_top = 28.5088
+margin_right = -41.0
+margin_bottom = 75.5088
+custom_styles/fg = SubResource( 42 )
+custom_styles/bg = SubResource( 43 )
+value = 100.0
+percent_visible = false
+script = ExtResource( 28 )
+
+[node name="FallZone" type="Area2D" parent="MusicFight"]
+position = Vector2( -96, 1664.04 )
+collision_layer = 4
+collision_mask = 17
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicFight/FallZone"]
+position = Vector2( 111.177, 0 )
+shape = SubResource( 39 )
+
+[node name="Player" parent="MusicFight" instance=ExtResource( 15 )]
+position = Vector2( -242.517, -504.946 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Camera2D2" type="Camera2D" parent="MusicFight/Player"]
+offset = Vector2( 0, -250 )
+current = true
+limit_bottom = 1000
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+editor_draw_limits = true
+
+[node name="Portal" type="Area2D" parent="MusicFight"]
+position = Vector2( 538.86, -589.408 )
+collision_layer = 0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+NewPos = Vector2( 2258.84, -1544.27 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicFight/Portal"]
+shape = SubResource( 40 )
+
+[node name="Sprite" type="Sprite" parent="MusicFight/Portal"]
+texture = ExtResource( 13 )
+
+[node name="Camera2D" type="Camera2D" parent="MusicFight"]
+position = Vector2( 2271.77, -1799.25 )
+zoom = Vector2( 1.025, 1 )
+script = ExtResource( 22 )
+
+[node name="Label" type="Label" parent="MusicFight"]
+margin_left = -212.9
+margin_top = -747.65
+margin_right = 460.1
+margin_bottom = -554.65
+custom_fonts/font = SubResource( 41 )
+text = "You're going to face the final boss himself.
+Prepare yourself as your fight wil start
+immediately after you've stepped through
+the portal"
+align = 1
+valign = 1
+
+[node name="BossDragon" parent="MusicFight" instance=ExtResource( 24 )]
+position = Vector2( 2855.7, -2042.34 )
+collision_layer = 0
+
+[node name="AnimatedSprite" parent="MusicFight/BossDragon" index="0"]
+frame = 0
+
+[node name="Area2D2" type="Area2D" parent="MusicFight/BossDragon"]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicFight/BossDragon/Area2D2"]
+position = Vector2( -8.49438, 21.6602 )
+shape = SubResource( 44 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MusicFight/BossDragon"]
+anims/Died = ExtResource( 29 )
+anims/RESET = SubResource( 45 )
+
+[node name="BossMagician" parent="MusicFight" instance=ExtResource( 27 )]
+position = Vector2( 2944.69, -1546.19 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MusicFight/BossMagician"]
+anims/Flee = SubResource( 46 )
+anims/RESET = SubResource( 47 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicFight"]
+stream = ExtResource( 25 )
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="MusicFight"]
+stream = ExtResource( 31 )
+
+[connection signal="Boss_Is_Dead" from="MusicFight/HUD/BossBar" to="MusicFight" method="_on_BossBar_Boss_Is_Dead"]
+[connection signal="value_changed" from="MusicFight/HUD/BossBar" to="MusicFight/HUD/BossBar" method="_on_BossBar_value_changed"]
+[connection signal="body_entered" from="MusicFight/FallZone" to="." method="_on_FallZone_body_entered"]
+[connection signal="body_entered" from="MusicFight/Portal" to="MusicFight" method="_on_Portal_body_entered"]
+[connection signal="body_entered" from="MusicFight/Portal" to="MusicFight/HUD/BossBar" method="_on_Portal_body_entered"]
+[connection signal="body_entered" from="MusicFight/Portal" to="MusicFight/Portal" method="_on_Portal_body_entered"]
+[connection signal="body_entered" from="MusicFight/Portal" to="MusicFight/Camera2D" method="_on_Portal_body_entered"]
+[connection signal="body_entered" from="MusicFight/Portal" to="MusicFight/BossDragon" method="_on_Portal_body_entered"]
+[connection signal="body_entered" from="MusicFight/Portal" to="MusicFight/BossMagician" method="_on_Portal_body_entered"]
+[connection signal="area_entered" from="MusicFight/BossDragon/Area2D2" to="MusicFight/HUD/BossBar" method="_on_Area2D2_area_entered"]
+[connection signal="animation_finished" from="MusicFight/BossDragon/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+
+[editable path="MusicFight/BossDragon"]

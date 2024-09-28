@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Applause Crowd Cheering sound effect.mp3-e14b985e0896eae771f43640912f12a3.mp3str"
+
+[deps]
+
+source_file="res://Applause Crowd Cheering sound effect.mp3"
+dest_files=[ "res://.import/Applause Crowd Cheering sound effect.mp3-e14b985e0896eae771f43640912f12a3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
